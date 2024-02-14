@@ -1,3 +1,5 @@
+let listaDeNumerosSorteados = [];
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
@@ -39,7 +41,21 @@ function verificarChute() { // essa função vai verificar o chute
 }
 
 function gerarNumeroAleatorio() { // essa função vai gerar um número aleatório entre 1 - 10
-    return parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido = parseInt(Math.random() * 10 + 1);
+
+    let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length; // length - vai ler o tamanho da lista
+
+    if (quantidadeDeElementosNaLista == numeroLimite) { //se o tamanho da lista atingir o limite (10) ele vai resetar o tamanho da lista para ser sorteado novos numeros
+        listaDeNumerosSorteados = [];
+    }
+
+    if (listaDeNumerosSorteados.includes(numeroEscolhido)) { //includes - vai verificar se tem um numero escolhido dentro da array, se haver ele executa um return para gerar um novo numero
+        return gerarNumeroAleatorio();
+
+    } else { // caso não tenha, o numero escolhido é guardado dentro da array e gera um novo numero 
+        listaDeNumerosSorteados.push(numeroEscolhido);
+        return numeroEscolhido;
+    }
 }
 
 function limparCampo() { // essa função vai limpar o campo do input após chutar um número
