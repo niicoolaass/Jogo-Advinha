@@ -6,6 +6,8 @@ let tentativas = 1;
 function exibirTextoNaTela(tag, texto) { // essa função pegou tags do html para inserir texto pelo js
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2} ); // atraves do responsiveVoice ela vai ler um texto
 }
 
 function exibirMensagemInicial() { // essa função está inserindo textos no html
@@ -21,7 +23,7 @@ function verificarChute() { // essa função vai verificar o chute
 
     if (chute == numeroSecreto) { // se o chute for verdadeiro 
         exibirTextoNaTela('h1', 'Acertou');
-
+        
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
 
         let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}`;
