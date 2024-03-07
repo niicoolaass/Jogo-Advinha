@@ -1,6 +1,6 @@
 # Jogo de adivinha
 
-Projeto do módulo de lógica de programação.
+Projeto do módulo Iniciante em Programação.
 
 Jogue: https://jogo-jet-beta.vercel.app
 
